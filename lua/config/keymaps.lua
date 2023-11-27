@@ -7,7 +7,7 @@ mapkey("<leader>`", "e #", "n") -- Switch to Other Buffer
 
 -- Directory Navigatio}n
 mapkey("<leader>m", "NvimTreeFocus", "n")
-mapkey("<leader>e", "NvimTreeToggle", "n")
+mapkey("<F3>", "NvimTreeToggle", "n")
 
 -- Pane and Window Navigation
 mapkey("<C-h>", "<C-w>h", "n") -- Navigate Left
@@ -46,3 +46,41 @@ api.nvim_set_keymap("n", "<leader>za", ":TZAtaraxis<CR>", {})
 -- Comments
 api.nvim_set_keymap("n", "<C-_>", "gtc", { noremap = false })
 api.nvim_set_keymap("v", "<C-_>", "goc", { noremap = false })
+
+local function map(mode, shortcut, command)
+	vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = true })
+end
+
+local function nmap(shortcut, command)
+	map("n", shortcut, command)
+end
+
+local function vmap(shortcut, command)
+	map("v", shortcut, command)
+end
+
+-- Git - Vim-fugitive
+nmap("<leader>gj", ":diffget //3<CR>")
+nmap("<leader>gf", ":diffget //2<CR>")
+
+nmap("<leader>gs", ":G<CR>")
+nmap("<leader>gc", ":Git commit<CR>")
+
+nmap("<leader>cx", ":call CompilaLatex()<CR>")
+
+nmap("<leader>md", ":MarkdownPreview<CR>")
+nmap("<S-l>", ":tabnex<CR>")
+nmap("<S-h>", ":tabprev<CR>")
+
+-- Split resize
+nmap("<A-+>", ":vertical resize +15<CR>")
+nmap("<A-->", ":vertical resize -15<CR>")
+nmap("<leader>v+", ":resize +15<CR>")
+nmap("<leader>v-", ":resize -15<CR>")
+
+-- MarkDown
+nmap("<Leader>md", ":MarkdownPreview<CR>")
+nmap("<Leader>cr", ":call Captura()<CR>")
+
+-- colar não substitui o register
+vmap("p", '"_dP')

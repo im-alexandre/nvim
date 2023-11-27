@@ -51,3 +51,10 @@ vim.keymap.set({ "i", "s" }, "<Tab>", function()
 		luasnip.expand_or_jump()
 	end
 end, { silent = true })
+
+vim.cmd([[
+highlight Normal guibg=none
+
+highlight Normal ctermbg=none
+
+]])

@@ -1,4 +1,4 @@
 return {
-	"pocco81/true-zen.nvim",
+	"tpope/vim-fugitive",
 	lazy = false,
 }
