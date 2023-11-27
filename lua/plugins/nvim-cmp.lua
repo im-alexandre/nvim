@@ -31,6 +31,7 @@ return {
 				{ name = "buffer" }, -- text within current buffer
 				{ name = "path" }, -- file system paths
 				{ name = "cmp-path" },
+				{ name = "nvim_lua" },
 			}),
 			-- configure lspkind for vs-code like icons
 			formatting = {
