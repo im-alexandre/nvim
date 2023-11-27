@@ -47,51 +47,45 @@ api.nvim_set_keymap("n", "<leader>za", ":TZAtaraxis<CR>", {})
 api.nvim_set_keymap("n", "<C-_>", "gtc", { noremap = false })
 api.nvim_set_keymap("v", "<C-_>", "goc", { noremap = false })
 
-local function map(mode, shortcut, command)
-	vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = true })
-end
-
-local function nmap(shortcut, command)
-	map("n", shortcut, command)
-end
-
-local function vmap(shortcut, command)
-	map("v", shortcut, command)
-end
-
 -- Git - Vim-fugitive
-nmap("<leader>gj", ":diffget //3<CR>")
-nmap("<leader>gf", ":diffget //2<CR>")
+vim.keymap.set("n", "<leader>gj", ":diffget //3<CR>")
+vim.keymap.set("n", "<leader>gf", ":diffget //2<CR>")
 
-nmap("<leader>gs", ":G<CR>")
-nmap("<leader>gc", ":Git commit<CR>")
+vim.keymap.set("n", "<leader>gs", ":G<CR>")
+vim.keymap.set("n", "<leader>gc", ":Git commit<CR>")
 
-nmap("<leader>cx", ":call CompilaLatex()<CR>")
+vim.keymap.set("n", "<leader>cx", ":call CompilaLatex()<CR>")
 
-nmap("<leader>md", ":MarkdownPreview<CR>")
-nmap("<S-l>", ":tabnex<CR>")
-nmap("<S-h>", ":tabprev<CR>")
+vim.keymap.set("n", "<leader>md", ":MarkdownPreview<CR>")
+vim.keymap.set("n", "<S-l>", ":tabnex<CR>")
+vim.keymap.set("n", "<S-h>", ":tabprev<CR>")
 
 -- Split resize
-nmap("<A-+>", ":vertical resize +15<CR>")
-nmap("<A-->", ":vertical resize -15<CR>")
-nmap("<leader>v+", ":resize +15<CR>")
-nmap("<leader>v-", ":resize -15<CR>")
+vim.keymap.set("n", "<A-+>", ":vertical resize +15<CR>")
+vim.keymap.set("n", "<A-->", ":vertical resize -15<CR>")
+vim.keymap.set("n", "<leader>v+", ":resize +15<CR>")
+vim.keymap.set("n", "<leader>v-", ":resize -15<CR>")
 
 -- Identação em blocos
-vmap("<", "<gv")
-vmap(">", ">gv")
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
 
-vmap("p", '"_dP') -- colar não substitui o register
+vim.keymap.set("v", "p", '"_dP') -- colar não substitui o register
 
 -- MarkDown
-nmap("<Leader>md", ":MarkdownPreview<CR>")
-nmap("<Leader>cr", ":call Captura()<CR>")
+vim.keymap.set("n", "<Leader>md", ":MarkdownPreview<CR>")
+vim.keymap.set("n", "<Leader>cr", ":call Captura()<CR>")
 
 -- Harpoon
-nmap("<leader>gt", ':lua require("harpoon.term").gotoTerminal(1)<CR>')
-nmap("<leader>hp", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
-nmap("<leader>ha", ':lua require("harpoon.mark").add_file()<CR>')
+vim.keymap.set("n", "<leader>gt", function()
+	term_number = vim.fn.input("Número do terminal: ")
+	if term_number == nil or term_number == "" then
+		term_number = 1
+	end
+	require("harpoon.term").gotoTerminal(tonumber(term_number))
+end)
+vim.keymap.set("n", "<leader>hp", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
+vim.keymap.set("n", "<leader>ha", ':lua require("harpoon.mark").add_file()<CR>')
 
 -- Undoo tree
-nmap("<F5>", ":UndotreeToggle<CR>")
+vim.keymap.set("n", "<F5>", ":UndotreeToggle<CR>")
