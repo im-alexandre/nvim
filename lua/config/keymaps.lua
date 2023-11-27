@@ -78,15 +78,20 @@ nmap("<A-->", ":vertical resize -15<CR>")
 nmap("<leader>v+", ":resize +15<CR>")
 nmap("<leader>v-", ":resize -15<CR>")
 
+-- Identação em blocos
+vmap("<", "<gv")
+vmap(">", ">gv")
+
+vmap("p", '"_dP') -- colar não substitui o register
+
 -- MarkDown
 nmap("<Leader>md", ":MarkdownPreview<CR>")
 nmap("<Leader>cr", ":call Captura()<CR>")
-
--- colar não substitui o register
-vmap("p", '"_dP')
 
 -- Harpoon
 nmap("<leader>gt", ':lua require("harpoon.term").gotoTerminal(1)<CR>')
 nmap("<leader>hp", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
 nmap("<leader>ha", ':lua require("harpoon.mark").add_file()<CR>')
 
+-- Undoo tree
+nmap("<F5>", ":UndotreeToggle<CR>")
