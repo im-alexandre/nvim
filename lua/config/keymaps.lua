@@ -1,5 +1,4 @@
 local mapkey = require("util.keymapper").mapkey
-
 -- Buffer Navigation
 mapkey("<leader>bn", "bnext", "n") -- Next buffer
 mapkey("<leader>bp", "bprevious", "n") -- Prev buffer
