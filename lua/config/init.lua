@@ -54,7 +54,5 @@ end, { silent = true })
 
 vim.cmd([[
 highlight Normal guibg=none
-
 highlight Normal ctermbg=none
-
 ]])

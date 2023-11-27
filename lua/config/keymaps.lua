@@ -84,3 +84,9 @@ nmap("<Leader>cr", ":call Captura()<CR>")
 
 -- colar não substitui o register
 vmap("p", '"_dP')
+
+-- Harpoon
+nmap("<leader>gt", ':lua require("harpoon.term").gotoTerminal(1)<CR>')
+nmap("<leader>hp", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
+nmap("<leader>ha", ':lua require("harpoon.mark").add_file()<CR>')
+
