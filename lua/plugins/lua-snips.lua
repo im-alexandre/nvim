@@ -8,4 +8,5 @@ return {
 		"rafamadriz/friendly-snippets",
 		"saadparwaiz1/cmp_luasnip",
 	},
+	lazy = false,
 }
