@@ -116,6 +116,12 @@ local config = function()
 		},
 	})
 
+	-- PHP
+	lspconfig.intelephense.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	})
+
 	local luacheck = require("efmls-configs.linters.luacheck")
 	local stylua = require("efmls-configs.formatters.stylua")
 	local flake8 = require("efmls-configs.linters.flake8")
@@ -129,6 +135,8 @@ local config = function()
 	local solhint = require("efmls-configs.linters.solhint")
 	local cpplint = require("efmls-configs.linters.cpplint")
 	local clangformat = require("efmls-configs.formatters.clang_format")
+	local phpcbf = require("efmls-configs.formatters.phpcbf")
+	local phpstan = require("efmls-configs.linters.phpstan")
 
 	-- configure efm server
 	lspconfig.efm.setup({
@@ -151,6 +159,7 @@ local config = function()
 			"css",
 			"c",
 			"cpp",
+			"php",
 		},
 		init_options = {
 			documentFormatting = true,
@@ -180,6 +189,7 @@ local config = function()
 				css = { prettier_d },
 				c = { clangformat, cpplint },
 				cpp = { clangformat, cpplint },
+				php = { phpstan, phpcbf },
 			},
 		},
 	})
