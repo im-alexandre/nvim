@@ -106,15 +106,15 @@ local config = function()
 		on_attach = on_attach,
 	})
 
-	-- C/C++
-	lspconfig.clangd.setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-		cmd = {
-			"clangd",
-			"--offset-encoding=utf-16",
-		},
-	})
+	-- -- C/C++
+	-- lspconfig.clangd.setup({
+	-- 	capabilities = capabilities,
+	-- 	on_attach = on_attach,
+	-- 	cmd = {
+	-- 		"clangd",
+	-- 		"--offset-encoding=utf-16",
+	-- 	},
+	-- })
 
 	-- PHP
 	lspconfig.intelephense.setup({
@@ -133,8 +133,10 @@ local config = function()
 	local shfmt = require("efmls-configs.formatters.shfmt")
 	local hadolint = require("efmls-configs.linters.hadolint")
 	local solhint = require("efmls-configs.linters.solhint")
-	local cpplint = require("efmls-configs.linters.cpplint")
-	local clangformat = require("efmls-configs.formatters.clang_format")
+
+	-- local cpplint = require("efmls-configs.linters.cpplint")
+	-- local clangformat = require("efmls-configs.formatters.clang_format")
+
 	local phpcbf = require("efmls-configs.formatters.phpcbf")
 	local phpstan = require("efmls-configs.linters.phpstan")
 
@@ -157,8 +159,8 @@ local config = function()
 			"solidity",
 			"html",
 			"css",
-			"c",
-			"cpp",
+			-- "c",
+			-- "cpp",
 			"php",
 		},
 		init_options = {

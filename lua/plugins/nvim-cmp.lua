@@ -6,6 +6,7 @@ return {
 		local lspkind = require("lspkind")
 
 		require("luasnip/loaders/from_vscode").lazy_load()
+		require("luasnip.loaders.from_snipmate").lazy_load()
 
 		vim.opt.completeopt = "menu,menuone,noselect"
 
@@ -26,12 +27,12 @@ return {
 			}),
 			-- sources for autocompletion
 			sources = cmp.config.sources({
-				{ name = "nvim_lsp" }, -- lsp
 				{ name = "luasnip" }, -- snippets
+				{ name = "nvim_lsp" }, -- lsp
+				{ name = "nvim_lua" },
 				{ name = "buffer" }, -- text within current buffer
 				{ name = "path" }, -- file system paths
 				{ name = "cmp-path" },
-				{ name = "nvim_lua" },
 			}),
 			-- configure lspkind for vs-code like icons
 			formatting = {
