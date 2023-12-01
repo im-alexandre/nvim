@@ -56,8 +56,8 @@ vim.keymap.set("n", "<S-h>", ":tabprev<CR>")
 -- Split resize
 vim.keymap.set("n", "<A-+>", ":vertical resize +15<CR>")
 vim.keymap.set("n", "<A-->", ":vertical resize -15<CR>")
-vim.keymap.set("n", "<leader>v+", ":resize +15<CR>")
-vim.keymap.set("n", "<leader>v-", ":resize -15<CR>")
+vim.keymap.set("n", "<A-[>", ":resize +15<CR>")
+vim.keymap.set("n", "<A-]>", ":resize -15<CR>")
 
 -- Identação em blocos
 vim.keymap.set("v", "<", "<gv")
