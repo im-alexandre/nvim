@@ -28,6 +28,7 @@ return {
 			-- sources for autocompletion
 			sources = cmp.config.sources({
 				{ name = "luasnip" }, -- snippets
+				{ name = "snipmate" },
 				{ name = "nvim_lsp" }, -- lsp
 				{ name = "nvim_lua" },
 				{ name = "buffer" }, -- text within current buffer
